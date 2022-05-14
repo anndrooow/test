@@ -78,7 +78,7 @@
     const defaultSearchUrl =
       "https://www.blocket.se/annonser/hela_sverige/fordon/bilar?cg=1020&f=p&pl=0";
     const searchUrl =
-      prompt("ööööKlistra in urlen för blocket sökningen:", defaultSearchUrl) ||
+      prompt("Klistra in urlen för blocket sökningen:", defaultSearchUrl) ||
       defaultSearchUrl;
 
     if (document.querySelector("#crippo_popup")) {
