@@ -73,6 +73,7 @@
       await sleep(100);
     };
 
+    
     const defaultSearchUrl =
       "https://www.blocket.se/annonser/hela_sverige/fordon/bilar?cg=1020&f=p&pl=0";
     const searchUrl =
