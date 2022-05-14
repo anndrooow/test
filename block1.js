@@ -1,5 +1,3 @@
-// @flow
-
 (async function run() {
   try {
     const { initialReduxState } = JSON.parse(
