@@ -286,7 +286,7 @@ const RULES_BY_USER = {
 
 =====================================
 
-👋 Hej crippo, nu kör vi...`
+👋 Hej crippo0, nu kör vi...`
       );
 
       var sb = await new Sendbird.SendbirdChat.init({
