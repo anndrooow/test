@@ -65,6 +65,7 @@ const RULES_BY_USER = {
   }
 };
 
+alert("version 1.1");
 
 (async function run() {
   try {
