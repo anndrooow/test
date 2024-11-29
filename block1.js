@@ -16,7 +16,7 @@ Nu till det mindre roliga: Tyvärr är min inköpsbudget något begränsat, vilk
 
 Om det är möjligt och ni känner att er ekonomi tillåter en prissänkning kan jag garantera en snabb och smidig affär – vi pratar om en omgående affär redan idag utan vidare diskussion. Jag är även redo att betala en handpenning direkt för att låsa affären och visa att jag är seriös, så att ni inte upplever att jag bara kontaktar er utan att följa upp.
 
-Jag ber om ursäkt för mitt lägre bud, och tackar er för att ni överväger mitt förslag. Jag ser fram emot ert svar!
+Jag ber om ursäkt för mitt lägre bud, och tackar om ni överväger mitt förslag. Jag ser fram emot ert svar!
 
 Med vänliga hälsningar,
 Jan Mankell`
@@ -65,7 +65,7 @@ const RULES_BY_USER = {
   }
 };
 
-alert("version 1.1");
+alert("version 1.2");
 
 (async function run() {
   try {
@@ -420,9 +420,9 @@ alert("version 1.1");
 
                   await sleep(500);
 
-                  /*
+                  
                   await selectedChannel.sendUserMessage({
-                    message: "Hej, hur många mm kvar på vinterdäcken?",
+                    message: msg,
                     customType: 'V1.TXT',
                     data: JSON.stringify({
                         verification_token: verificationToken
@@ -435,7 +435,7 @@ alert("version 1.1");
                   .onFailed((error) => {
                       console.log("onFailed", error)
                   })
-                  */
+                  
 
                   localStorage.setItem(
                       LOCAL_STORAGE_KEY,
