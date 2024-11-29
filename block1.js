@@ -65,6 +65,8 @@ const RULES_BY_USER = {
   }
 };
 
+console.log("V1")
+
 (async function run() {
   try {
       const {
@@ -152,9 +154,6 @@ const RULES_BY_USER = {
 
           await sleep(100);
       };
-
-
-      alert("hej")
 
 
       const bargainRules = {
