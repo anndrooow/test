@@ -65,7 +65,7 @@ const RULES_BY_USER = {
   }
 };
 
-console.log("V1")
+console.log("V1");
 
 (async function run() {
   try {
