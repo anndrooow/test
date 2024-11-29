@@ -154,6 +154,9 @@ const RULES_BY_USER = {
       };
 
 
+      alert("hej")
+
+
       const bargainRules = {
         between_0_9999: prompt("Hur mycket ska prutas när priset är mellan 0 och 9999?", 5000) ||
               5000,
