@@ -68,7 +68,7 @@ const RULES_BY_USER = {
   }
 };
 
-alert("version 1.3 (aretämmer)");
+alert("version 1.4 (aretämmer)");
 
 (async function run() {
   try {
