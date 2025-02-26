@@ -163,10 +163,18 @@ const DEFAULT_BARGAIN_RANGES = [
       return
     }
 
-    const apiFilterNumber = prompt(`Vilket filter ska användas? 
+    const apiFilterNumber = prompt(`Vilket filter ska användas? (ange nummer)
       
-      1. ss
-      2. aa`, 1)
+      1. Gamla 1
+      2. Gamla 2
+      3. Gamla 3
+      4. Nya 1: Alla bilar - Angränsande län
+      5. Nya 2: Suvar & 7-Sits bilar - Angränsande län
+      6. Nya 3: Manuellt valda lättsålda märken - Angränsande län
+      7. Nya 4: Yrkesbilar - POLEN
+      8. Nya 5: Manuellt valda lättsålda märken - POLEN
+
+      `, 1)
 
     const apiFilter = API_FILTERS[apiFilterNumber - 1]
 
