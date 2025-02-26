@@ -1,4 +1,4 @@
-alert('version 1.4 (aretämmer)')
+alert('version 1.5 (x-haaaaaaaKT)')
 
 const API_FILTERS = [
   `filter=%7B"key"%3A"price"%2C"range"%3A%7B"start"%3A"20000"%2C"end"%3A"100000"%7D%7D&filter=%7B"key"%3A"sellerType"%2C"values"%3A%5B"Privat"%5D%7D&filter=%7B"key"%3A"milage"%2C"range"%3A%7B"start"%3A""%2C"end"%3A"34999"%7D%7D&filter=%7B"key"%3A"chassi"%2C"values"%3A%5B"Kombi"%2C"Halvkombi"%2C"Sedan"%2C"SUV"%2C"Familjebuss"%2C"Coupé"%5D%7D`,
@@ -163,7 +163,10 @@ const DEFAULT_BARGAIN_RANGES = [
       return
     }
 
-    const apiFilterNumber = prompt('Vilket filter ska användas? Nummer 1, 2, eller 3?', 1)
+    const apiFilterNumber = prompt(`Vilket filter ska användas? 
+      
+      1. ss
+      2. aa`, 1)
 
     const apiFilter = API_FILTERS[apiFilterNumber - 1]
 
