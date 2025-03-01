@@ -415,20 +415,20 @@ const DEFAULT_BARGAIN_RANGES = [
 
           const givenPrice = calculateBargainPrice(price, bargainRanges)
           const msg = (() => {
-
+console.log("apiFilterNumber", apiFilterNumber)
             switch(apiFilterNumber) {
-              case 1:
-              case 2:
-              case 3:
+              case "1":
+              case "2":
+              case "3":
                 return MESSAGE_1(givenPrice)
-              case 4:
-              case 5:
-              case 6:
-              case 7:
-              case 8:
-                return MESSAGE_1(givenPrice)
+              case "4":
+              case "5":
+              case "6":
+              case "7":
+              case "8":
+                return MESSAGE_3(givenPrice)
               default:
-                throw Error("Fel!")
+                throw Error("JÄVLA SKIT!")
             }
             
           })() 
