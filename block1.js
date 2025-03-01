@@ -41,41 +41,45 @@ Jag ber om ursäkt för mitt lägre bud, och tackar om ni överväger mitt förs
 Med vänliga hälsningar,
 Jan Mankell`
 
-const MESSAGE_2 = (price) => `Hej!
+// const MESSAGE_2 = (price) => `Hej!
 
-Mitt namn är John C och jag tänkte kort berätta lite om vem vi är. Vi på BilBuffén (Bilfirma) är en mindre bilfirma som värdesätter smidiga och trygga affärer för båda parter. Vi har sett er bil och är mycket intresserade av att köpa den och undrar om ni skulle kunna tänka er ett bud på ${price} kr
+// Mitt namn är John C och jag tänkte kort berätta lite om vem vi är. Vi på BilBuffén (Bilfirma) är en mindre bilfirma som värdesätter smidiga och trygga affärer för båda parter. Vi har sett er bil och är mycket intresserade av att köpa den och undrar om ni skulle kunna tänka er ett bud på ${price} kr
 
-Vi köper bilen i befintligt skick och utan krav på ångerrätt, klagomål eller återköp, vilket gör processen snabb och enkel för er. Det enda vi önskar är att bilen inte har några dolda fel, och om det finns några kända anmärkningar eller defekter, ser vi gärna att ni informerar oss om dessa i förväg om det finns.
+// Vi köper bilen i befintligt skick och utan krav på ångerrätt, klagomål eller återköp, vilket gör processen snabb och enkel för er. Det enda vi önskar är att bilen inte har några dolda fel, och om det finns några kända anmärkningar eller defekter, ser vi gärna att ni informerar oss om dessa i förväg om det finns.
 
-Vi är medvetna om att vårt bud kanske är något lägre än vad ni hade hoppats på men med det i utbyte erbjuder vi en snabb, problemfri och seriös affär. Ni slipper visningar, spekulanter och "sista pris kompisar" Vi kan ordna allt enligt era önskemål – ni är varmt välkomna att besöka oss på vår bilfirma, eller så kommer vi direkt till er för att slutföra affären.
+// Vi är medvetna om att vårt bud kanske är något lägre än vad ni hade hoppats på men med det i utbyte erbjuder vi en snabb, problemfri och seriös affär. Ni slipper visningar, spekulanter och "sista pris kompisar" Vi kan ordna allt enligt era önskemål – ni är varmt välkomna att besöka oss på vår bilfirma, eller så kommer vi direkt till er för att slutföra affären.
 
-Tack för att ni tar er tid att överväga vårt erbjudande. Vi ser fram emot att få höra från er och hoppas på en positiv respons!
+// Tack för att ni tar er tid att överväga vårt erbjudande. Vi ser fram emot att få höra från er och hoppas på en positiv respons!
 
-Med vänliga hälsningar Neo D,
-BilBuffén AB                                                                                                                      
-Spångavägen 308 
-16346 Spånga`
+// Med vänliga hälsningar Neo D,
+// BilBuffén AB                                                                                                                      
+// Spångavägen 308 
+// 16346 Spånga`
 
-const RULES_BY_USER = {
-  'andreaslarson@live.se': {
-    message: MESSAGE_1,
-  },
-  'jan_dolbysound@outlook.com': {
-    message: MESSAGE_1,
-  },
-  'patricia.atanasio@icloud.com': {
-    message: MESSAGE_1,
-  },
-  'neodolinskii@icloud.com': {
-    message: MESSAGE_1,
-  },
-  'diamanta_d@hotmail.com': {
-    message: MESSAGE_1,
-  },
-  'bilbuffen@gmail.com': {
-    message: MESSAGE_2,
-  },
-}
+const MESSAGE_3 = (price) => `Hej och hoppas allt väl :)
+
+Jag heter Jan och är intresserad av er bil. Den ser supertrevlig ut, en sådan som jag letar efter.  
+Jag förstår att priset är redan rimligt, men tyvärr är min budged begränsad när det gäller bilköp. 
+
+Jag vill vara öppen & ärlig redan nu, så jag undrar om ni skulle kunna tänka er godta ett bud på ${price} kr?
+
+Om JA? Då garanterar jag en smidig & krångelfri affär redan idag. Jag kan även betala en handpenning för att visa att jag är seriös. 
+
+Sorry för mitt lägre bud & inga illa menat men jag tyckte att bilen såg fin ut.
+Tack för att ni överväger mitt bud – ser fram emot ert svar!
+
+Vänliga hälsningar,
+Jan M`
+
+
+const SUPPORTED_USERS = [
+  'andreaslarson@live.se',
+  'jan_dolbysound@outlook.com',
+  'patricia.atanasio@icloud.com',
+  'neodolinskii@icloud.com',
+  'diamanta_d@hotmail.com',
+  //'bilbuffen@gmail.com'
+]
 
 const DEFAULT_BARGAIN_RANGES = [
   { min: 0, max: 9999, bargain: 5000 },
@@ -113,9 +117,8 @@ const DEFAULT_BARGAIN_RANGES = [
       return
     }
 
-    const userRules = RULES_BY_USER[initialReduxState.user.email.toLowerCase()]
-
-    if (!userRules) {
+   
+    if (!SUPPORTED_USERS.includes(initialReduxState.user.email.toLowerCase())) {
       alert(`Finns inget stöd för användaren ${initialReduxState.user.email} ännu!`)
       return
     }
@@ -183,9 +186,9 @@ const DEFAULT_BARGAIN_RANGES = [
 
     const apiFilterNumber = prompt(`Vilket filter ska användas? (ange nummer)
       
-      1. Gamla 1
-      2. Gamla 2
-      3. Gamla 3
+      1. Gamla 1: Alla bilar - hela Sverige  
+      2. Gamla 2: Suvar & 7-sits bilar - hela Sverige
+      3. Gamla 3: Valda lättsålda märken -  hela Sverige
       4. Nya 1: Alla bilar - Angränsande län
       5. Nya 2: Suvar & 7-Sits bilar - Angränsande län
       6. Nya 3: Manuellt valda lättsålda märken - Angränsande län
@@ -411,7 +414,24 @@ const DEFAULT_BARGAIN_RANGES = [
           const price = ad.price.amount.replace(/\D/g, '')
 
           const givenPrice = calculateBargainPrice(price, bargainRanges)
-          const msg = userRules.message(givenPrice)
+          const msg = (() => {
+
+            switch(apiFilterNumber) {
+              case 1:
+              case 2:
+              case 3:
+                return MESSAGE_1(givenPrice)
+              case 4:
+              case 5:
+              case 6:
+              case 7:
+              case 8:
+                return MESSAGE_1(givenPrice)
+              default:
+                throw Error("Fel!")
+            }
+            
+          })() 
 
           messageInputElement.style.height = '300px'
 
