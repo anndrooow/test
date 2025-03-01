@@ -309,7 +309,7 @@ const DEFAULT_BARGAIN_RANGES = [
 
 =====================================
 
-👋 Hej crippo000, nu kör vi...`,
+👋 Hej, tänd cigge nu så kör vi...`,
     )
 
     var sb = await new Sendbird.SendbirdChat.init({
