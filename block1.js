@@ -58,15 +58,12 @@ Jan Mankell`
 
 const MESSAGE_3 = (price) => `Hej och hoppas allt väl :)
 
-Jag heter Jan och är intresserad av er bil. Den ser supertrevlig ut, en sådan som jag letar efter.  
-Jag förstår att priset är redan rimligt, men tyvärr är min budged begränsad när det gäller bilköp. 
+Mitt namn är Jan och är intresserad av er bil. Den ser supertrevlig ut, precis en sådan jag letar efter.  
+Priset verkar rimligt, dock är min budget lite begränsad och undrar om ni skulle kunna tänka er godta ett bud på ${price} kr?
 
-Jag vill vara öppen & ärlig redan nu, så jag undrar om ni skulle kunna tänka er godta ett bud på ${price} kr?
+Om ja, så garanterar jag en smidig och krångelfri affär redan idag. Jag kan även betala en handpenning för att visa att jag är seriös. 
 
-Om JA? Då garanterar jag en smidig & krångelfri affär redan idag. Jag kan även betala en handpenning för att visa att jag är seriös. 
-
-Sorry för mitt lägre bud & inga illa menat men jag tyckte att bilen såg fin ut.
-Tack för att ni överväger mitt bud – ser fram emot ert svar!
+Ursäkta mitt lägre bud, men hoppas ni kan överväga det. Jag ser fram emot ert svar!
 
 Vänliga hälsningar,
 Jan M`
@@ -309,7 +306,7 @@ const DEFAULT_BARGAIN_RANGES = [
 
 =====================================
 
-👋 Hej, tänd cigge nu så kör vi...`,
+👋 Hej, tänd ciggen nu så kör vi...`,
     )
 
     var sb = await new Sendbird.SendbirdChat.init({
